@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gowboy/character"
+	"gowboy/horse"
 )
 
 func main() {
@@ -39,6 +40,11 @@ func main() {
 		},
 		Inventory: []string{},
 		Dollars:   20,
+		Horse: horse.Horse{
+			Name:   "Swift",
+			Health: 50,
+			Speed:  10,
+		},
 	}
 
 	// Display initial stats

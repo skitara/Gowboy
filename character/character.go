@@ -1,6 +1,9 @@
 package character
 
-import "fmt"
+import (
+	"fmt"
+	"gowboy/horse"
+)
 
 type Stats struct {
 	Strength  int
@@ -95,6 +98,7 @@ type Cowboy struct {
 	Skills    Skills
 	Inventory []string
 	Dollars   int
+	Horse     horse.Horse
 }
 
 func (c *Cowboy) DistributePoints() {
