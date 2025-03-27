@@ -97,6 +97,7 @@ type Cowboy struct {
 	Stats     Stats
 	Skills    Skills
 	Inventory []string
+	Traits    []string
 	Dollars   int
 	Horse     horse.Horse
 }
@@ -124,5 +125,34 @@ func (c *Cowboy) DistributePoints() {
 		} else {
 			fmt.Println("This stat is already at the maximum value of 10.")
 		}
+	}
+}
+
+func NewCowboy(name string) *Cowboy {
+	return &Cowboy{
+		Name:      name,
+		Health:    100,
+		Stats:     Stats{5, 5, 5, 5, 5},
+		Inventory: []string{"Revolver", "Whiskey"},
+	}
+}
+
+func (c *Cowboy) ShowInventory() {
+	if len(c.Inventory) == 0 {
+		fmt.Println("Инвентарь пуст.")
+		return
+	}
+	fmt.Println("Инвентарь:")
+	for _, item := range c.Inventory {
+		fmt.Printf("- %s\n", item)
+	}
+}
+
+func (c *Cowboy) CheckHorse() {
+	if c.Horse.Name == "" {
+		fmt.Println("У тебя нет лошади! Найди её в салуне.")
+	} else {
+		fmt.Printf("Твой конь %s (Скорость: %d, Выносливость: %d)\n",
+			c.Horse.Name, c.Horse.Speed, c.Horse.Endurance)
 	}
 }
